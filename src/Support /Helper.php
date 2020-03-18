@@ -92,4 +92,14 @@ class Helper
     }
     return false;
   }
+
+  /**
+   * Get Wifi Encryption
+   * 
+   * @return array
+   */
+  public static function getWifiEncryption()
+  {
+    return ["nopass", "WEP", "WPA/WPA2"];
+  }
 }

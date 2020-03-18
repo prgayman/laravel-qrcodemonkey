@@ -108,4 +108,25 @@ class QRCodeTypeFormatData
     $schema = Schema::location()[$platform];
     return $schema . $data["latitude"] . "," . $data["longitude"];
   }
+
+  /**
+   * Format sms text
+   * @param string $platform 
+   * @param array $data 
+   *  - ssid required
+   *  - password optional
+   *  - encryption optional // nopass | WEP | WPA/WPA2
+   *  - hidden optional
+   * 
+   * @return string 
+   */
+  public static function wifi($data, $platform = "web")
+  {
+    $schema = Schema::wifi()[$platform];
+    $ssid = $data["ssid"];
+    $encryption = $data["encryption"] ?? "nopass";
+    $password = $data["password"] ?? "";
+    $hidden = $data["hidden"] ?? false;
+    return "$schema:T:{$encryption};S:{$ssid};P:{$password};H:{$hidden};";
+  }
 }
