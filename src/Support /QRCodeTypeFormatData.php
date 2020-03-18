@@ -93,4 +93,19 @@ class QRCodeTypeFormatData
     }
     return  $data["url"];
   }
+
+  /**
+   * Format sms text
+   * @param string $platform 
+   * @param array $data 
+   *  - latitude required
+   *  - longitude required
+   * 
+   * @return string 
+   */
+  public static function location($data, $platform = "web")
+  {
+    $schema = Schema::location()[$platform];
+    return $schema . $data["latitude"] . "," . $data["longitude"];
+  }
 }
