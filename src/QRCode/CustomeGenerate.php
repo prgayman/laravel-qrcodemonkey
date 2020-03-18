@@ -15,7 +15,7 @@ class CustomeGenerate
    * Type QRCode 
    *  Types [phone,sms,geo,url,text,location,wifi,vcard,email,bitcoin]
    */
-  private $type;
+  private $type = "text";
 
   /**
    * Qrcode data text or phone ot sms or other....
@@ -26,7 +26,7 @@ class CustomeGenerate
    * Set Platform default web
    * - Platform Supported [ios,android,web]
    */
-  private $platform;
+  private $platform = "web";
 
   /**
    * Qrcode Monkey Parameters 
