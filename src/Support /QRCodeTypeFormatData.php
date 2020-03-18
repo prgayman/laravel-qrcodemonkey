@@ -63,4 +63,34 @@ class QRCodeTypeFormatData
 
     return $schema . $data["email"] . "?" . http_build_query($emailData);
   }
+
+  /**
+   *   text
+   * @param string $platform 
+   * @param array $data 
+   *  - text required
+   * 
+   * @return string 
+   */
+  public static function text($data, $platform = "web")
+  {
+    return  $data["text"];
+  }
+
+  /**
+   * Format Url
+   * @param string $platform 
+   * @param array $data 
+   *  - url required
+   * 
+   * @return string 
+   */
+  public static function url($data, $platform = "web")
+  {
+    $parsed = parse_url($data["url"]);
+    if (empty($parsed['scheme'])) {
+      $data["url"] = 'http://' . ltrim($data["url"], '/');
+    }
+    return  $data["url"];
+  }
 }
