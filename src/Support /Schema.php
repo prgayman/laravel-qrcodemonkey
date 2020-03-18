@@ -10,16 +10,16 @@ class Schema
     return [
       "android" => "tel:",
       "web" => "tel:",
-      "ios" => "tel://",
+      "ios" => "tel:",
     ];
   }
 
   public static function sms()
   {
     return [
-      "android" => "sms:",
-      "web" => "sms:",
-      "ios" => "sms:",
+      "android" => "SMSTO:",
+      "web" => "SMSTO:",
+      "ios" => "SMSTO:",
     ];
   }
 
@@ -38,7 +38,7 @@ class Schema
     return [
       "android" => "mailto:",
       "web" => "mailto:",
-      "ios" => "mailto://",
+      "ios" => "mailto:",
     ];
   }
 
