@@ -1,17 +1,29 @@
 <?php
 
-namespace AymanAlaiwah\QRCodeMonkey\Traits;
+namespace AymanAlaiwah\QRCodeMonkey\Support;
 
-trait Assets
+class Shapes
 {
+  /**
+   * Path of the resource.
+   *
+   * @var string
+   */
+  const RESOURCE_PATH = __DIR__ . '/Resources/shapes.json';
+
+  public static function all()
+  {
+    return json_decode(file_get_contents(self::RESOURCE_PATH));
+  }
+
   /**
    * Get Body Shape key Name
    * 
    * @return array 
    */
-  public function bodyShape()
+  public static function bodyShape()
   {
-    return config("qrcode_monkey.bodyShape");
+    return self::all()->bodyShape;
   }
 
   /**
@@ -19,10 +31,10 @@ trait Assets
    * 
    * @return array [keyName=> ImgUrl]
    */
-  public function getBodyShapeImg()
+  public static function getBodyShapeImg()
   {
     $bodyShape = [];
-    foreach (config("qrcode_monkey.bodyShape") as  $shape) {
+    foreach (self::bodyShape() as  $shape) {
       $bodyShape[$shape] = asset("vendor/qrcodemonkey/qrcode/body/" . $shape . ".png");
     }
     return $bodyShape;
@@ -33,9 +45,9 @@ trait Assets
    * 
    * @return array 
    */
-  public function eyeBallShape()
+  public static function eyeBallShape()
   {
-    return config("qrcode_monkey.eyeBallShape");
+    return self::all()->eyeBallShape;
   }
 
   /**
@@ -43,10 +55,10 @@ trait Assets
    * 
    * @return array [keyName=> ImgUrl]
    */
-  public function getEyeBallShapeImg()
+  public static function getEyeBallShapeImg()
   {
     $eyeBallShape = [];
-    foreach (config("qrcode_monkey.eyeBallShape") as  $shape) {
+    foreach (self::eyeBallShape() as  $shape) {
       $eyeBallShape[$shape] = asset("vendor/qrcodemonkey/qrcode/eyeBall/" . $shape . ".png");
     }
     return $eyeBallShape;
@@ -57,9 +69,9 @@ trait Assets
    * 
    * @return array 
    */
-  public function eyeFrameShape()
+  public static function eyeFrameShape()
   {
-    return config("qrcode_monkey.eyeFrameShape");
+    return self::all()->eyeFrameShape;
   }
 
   /**
@@ -67,10 +79,10 @@ trait Assets
    * 
    * @return array [keyName=> ImgUrl]
    */
-  public function getEyeFrameShapeImg()
+  public static function getEyeFrameShapeImg()
   {
     $eyeFrameShape = [];
-    foreach (config("qrcode_monkey.eyeFrameShape") as  $shape) {
+    foreach (self::eyeFrameShape() as  $shape) {
       $eyeFrameShape[$shape] = asset("vendor/qrcodemonkey/qrcode/eye/" . $shape . ".png");
     }
     return $eyeFrameShape;

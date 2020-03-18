@@ -2,7 +2,6 @@
 
 namespace AymanAlaiwah\QRCodeMonkey;
 
-use AymanAlaiwah\QRCodeMonkey\Facades\QRCodeMonkey;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -15,9 +14,6 @@ class QRCodeMonkeyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('QRCodeMonkey', function () {
-            return new QRCodeMonkey;
-        });
     }
 
     /**
