@@ -4,6 +4,7 @@ namespace AymanAlaiwah\QRCodeMonkey\QRCode;
 
 use AymanAlaiwah\QRCodeMonkey\Support\Helper;
 use AymanAlaiwah\QRCodeMonkey\Support\QRCodeTypeFormatData;
+use AymanAlaiwah\QRCodeMonkey\Support\Shapes;
 use AymanAlaiwah\QRCodeMonkey\Traits\Api;
 use AymanAlaiwah\QRCodeMonkey\Traits\ApiConfig;
 
@@ -36,6 +37,40 @@ class CustomeGenerate
   private $config = [];
   private $file = "png";
   private $download = false;
+
+  /**
+   * Qrcode Monkey Config options
+   * 
+   */
+  private $bgColor = "#ffffff";
+  private $bodyColor = "#000000";
+  private $eyeColors = [
+    "eye1Color" => "#000000",
+    "eye2Color" => "#000000",
+    "eye3Color" => "#000000",
+  ];
+  private $eyeBallColors = [
+    "eyeBall1Color" => "#000000",
+    "eyeBall2Color" => "#000000",
+    "eyeBall3Color" => "#000000",
+  ];
+  private $gradientColors = [
+    "gradientColor1" => null,
+    "gradientColor2" => null
+  ];
+
+  /**
+   * Gradient Type
+   *  - linear [Default]
+   *  - radial
+   */
+  private $gradientType = "linear";
+  private $gradientOnEyes = false;
+  private $body = "square";
+  private $eye = "frame0";
+  private $eyeBall = "ball0";
+  private $logoMode = "default";
+  private $logo = null;
 
   public function __construct()
   {
@@ -111,6 +146,188 @@ class CustomeGenerate
   }
 
   /**
+   * Set Background Color HexColor
+   * @param string $hexColor
+   * 
+   * @return $this
+   */
+  public function setBgColor($hexColor)
+  {
+    $this->bgColor = $hexColor;
+    return $this;
+  }
+
+  /**
+   * Set Body Color HexColor
+   * @param string $hexColor
+   * 
+   * @return $this
+   */
+  public function setBodyColor($hexColor)
+  {
+    $this->bodyColor = $hexColor;
+    return $this;
+  }
+
+  /**
+   * Set Eye Colors HexColor
+   * @param string $eye1Color
+   * @param string $eye2Color
+   * @param string $eye3Color
+   * 
+   * @return $this
+   */
+  public function setEyeColors($eye1Color, $eye2Color, $eye3Color)
+  {
+    $this->eyeColors = [
+      "eye1Color" => $eye1Color,
+      "eye2Color" => $eye2Color,
+      "eye3Color" => $eye3Color,
+    ];
+    return $this;
+  }
+
+  /**
+   * Set Eye Ball Colors HexColor
+   * @param string $eyeBall1Color
+   * @param string $eyeBall2Color
+   * @param string $eyeBall3Color
+   * 
+   * @return $this
+   */
+  public function setEyeBallColors($eyeBall1Color, $eyeBall2Color, $eyeBall3Color)
+  {
+    $this->eyeColors = [
+      "eyeBall1Color" => $eyeBall1Color,
+      "eyeBall2Color" => $eyeBall2Color,
+      "eyeBall3Color" => $eyeBall3Color,
+    ];
+    return $this;
+  }
+
+  /**
+   * Set Eye Ball Colors HexColor
+   * @param string $gradientColor1
+   * @param string $gradientColor2
+   * 
+   * @return $this
+   */
+  public function setGradientColors($gradientColor1, $gradientColor2)
+  {
+    $this->eyeColors = [
+      "gradientColor1" => $gradientColor1,
+      "gradientColor2" => $gradientColor2,
+    ];
+    return $this;
+  }
+
+
+  /**
+   * Set Gradient Type
+   * @param string $type
+   *  - linear 
+   *  - radial
+   * 
+   * @return $this
+   */
+  public function setGradientType($type)
+  {
+    if (!in_array($type, ["linear", "radial"])) {
+      throw new \Exception("Gradient Type not supported types [linear ,radial]");
+    }
+    $this->gradientType = $type;
+    return $this;
+  }
+
+  /**
+   * Set Logo mode
+   * @param string $mode
+   *  - default 
+   *  - clean
+   * 
+   * @return $this
+   */
+  public function setLogoMode($mode)
+  {
+    if (!in_array($mode, ["default", "clean"])) {
+      throw new \Exception("Logo mode not supported value, [default ,clean]");
+    }
+    $this->logoMode = $mode;
+    return $this;
+  }
+
+  /**
+   * Set Logo url image
+   * @param string $logo
+   * 
+   * @return $this
+   */
+  public function setLogo($logo)
+  {
+    $this->logo = $logo;
+    return $this;
+  }
+
+  /**
+   * Set Body Shape
+   * @param string $shape
+   * 
+   * @return $this
+   */
+  public function setBodyShape($shape)
+  {
+    $bodyShape = Shapes::bodyShape();
+    if (!in_array($shape, $bodyShape)) {
+      throw new \Exception("Body shape not supported value ,[ " . $bodyShape . " ]");
+    }
+    $this->body = $shape;
+    return $this;
+  }
+
+  /**
+   * Set Eye Shape
+   * @param string $shape
+   * 
+   * @return $this
+   */
+  public function setEyeShape($shape)
+  {
+    $eyeFrameShape = Shapes::eyeFrameShape();
+    if (!in_array($shape, $eyeFrameShape)) {
+      throw new \Exception("Eye shape not supported value ,[ " . $eyeFrameShape . " ]");
+    }
+    $this->eye = $shape;
+    return $this;
+  }
+
+  /**
+   * Set Eye Ball Shape
+   * @param string $shape
+   * 
+   * @return $this
+   */
+  public function setEyeBallShape($shape)
+  {
+    $eyeBallShape = Shapes::eyeBallShape();
+    if (!in_array($shape, $eyeBallShape)) {
+      throw new \Exception("Eye Ball shape not supported value ,[ " . $eyeBallShape . " ]");
+    }
+    $this->eyeBall = $shape;
+    return $this;
+  }
+
+
+
+  /**
+   * Set Gradient On Eyes true by default false
+   * @return $this
+   */
+  public function gradientOnEyes()
+  {
+    $this->gradientOnEyes = true;
+    return $this;
+  }
+  /**
    * Create Qrcode 
    * @return mixed 
    */
@@ -134,7 +351,7 @@ class CustomeGenerate
 
   public function create()
   {
-    $this->qrFormatData();
+    $this->initData();
     $parameters = [
       "data" => $this->qrData,
       "config" => $this->config,
@@ -145,8 +362,27 @@ class CustomeGenerate
     return $this->post($parameters, $this->getCustomeUrl());
   }
 
-  private function qrFormatData()
+  private function initData()
   {
     $this->qrData =  QRCodeTypeFormatData::{$this->type}($this->data);
+    $this->config = [
+      "bgColor" => $this->bgColor,
+      "bodyColor" => $this->bodyColor,
+      "eye1Color" => $this->eyeColors["eye1Color"],
+      "eye2Color" => $this->eyeColors["eye2Color"],
+      "eye3Color" => $this->eyeColors["eye3Color"],
+      "eyeBall1Color" => $this->eyeBallColors["eyeBall1Color"],
+      "eyeBall2Color" => $this->eyeBallColors["eyeBall2Color"],
+      "eyeBall3Color" => $this->eyeBallColors["eyeBall3Color"],
+      "gradientColor1" => $this->gradientColors["gradientColor1"],
+      "gradientColor2" => $this->gradientColors["gradientColor2"],
+      "gradientType" => $this->gradientType,
+      "gradientOnEyes" => $this->gradientOnEyes,
+      "body" => $this->body,
+      "eye" => $this->eye,
+      "eyeBall" => $this->eyeBall,
+      "logo" => $this->logo,
+      "logoMode" => $this->logoMode
+    ];
   }
 }
