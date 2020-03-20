@@ -27,7 +27,7 @@ class Helper
    */
   public static function getSupportedTypes()
   {
-    return ["phone", "sms", "email", "text", "url", "location",  "wifi", "bitcoin", "vcard"];
+    return ["phone", "sms", "email", "text", "url", "location",  "wifi", "bitcoin", "vcard", "event"];
   }
 
   /**

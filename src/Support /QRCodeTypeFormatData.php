@@ -129,4 +129,65 @@ class QRCodeTypeFormatData
     $hidden = $data["hidden"] ?? false;
     return "$schema:T:{$encryption};S:{$ssid};P:{$password};H:{$hidden};";
   }
+
+  /**
+   * Format bitcoin text
+   * @param string $platform 
+   * @param array $data 
+   *  - address required
+   *  - amount optional
+   *  - label optional
+   *  - message optional
+   *  - return_address optional
+   * 
+   * @return string 
+   */
+
+  public static function bitcoin($data, $platform = "web")
+  {
+
+    $queryData = [];
+    if (isset($data['amount'])) {
+      $queryData["amount"] = $data["amount"];
+    }
+    if (isset($data['label'])) {
+      $queryData["label"] = $data["label"];
+    }
+    if (isset($data['message'])) {
+      $queryData["message"] = $data["message"];
+    }
+    if (isset($data['return_address'])) {
+      $queryData["r"] = $data["return_address"];
+    }
+
+    $schema = Schema::bitcoin()[$platform];
+    return $schema . $data['address'] . '?' . http_build_query($queryData);
+  }
+
+
+  /**
+   * Format sms text
+   * @param string $platform 
+   * @param array $data 
+   *  - dtStart required
+   *  - dtEnd required
+   *  - summary optional
+   *  - location optional
+   * 
+   * @return string 
+   */
+  public static function event($data, $platform = "web")
+  {
+    $string = "BEGIN:VEVENT\n";
+    if (isset($data["summary"])) {
+      $string .= "SUMMARY:" . $data["summary"] . "\n";
+    }
+    if (isset($data["location"])) {
+      $string .= "LOCATION:" . $data["location"] . "\n";
+    }
+    $string .= "DTSTART:" . $data["dtStart"] . "\n";
+    $string .= "DTEND:" . $data["dtEnd"] . "\n";
+    $string .= "END:VEVENT";
+    return $string;
+  }
 }
