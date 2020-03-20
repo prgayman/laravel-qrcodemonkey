@@ -7,7 +7,7 @@ use AymanAlaiwah\QRCodeMonkey\Traits\ApiConfig;
 
 class Helper
 {
-  use  Api;
+  use  Api, ApiConfig;
 
   /**
    * upload image to qrcode monkey

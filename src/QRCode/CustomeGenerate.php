@@ -1,6 +1,6 @@
 <?php
 
-namespace AymanAlaiwah\QRCodeMonkey\QRCode;
+namespace laravel\QRCodeMonkey\QRCode;
 
 use AymanAlaiwah\QRCodeMonkey\Support\Helper;
 use AymanAlaiwah\QRCodeMonkey\Support\QRCodeTypeFormatData;

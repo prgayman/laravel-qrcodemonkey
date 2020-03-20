@@ -1,16 +1,16 @@
 {
-    "name": "AymanAlaiwah/QRCodeMonkey",
-    "description": "Laravel Qrcode Monkey Api",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Ayman Alaiwah",
-            "email": "aymanalaiwah.dev@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "guzzlehttp/guzzle": "^7.0@dev"
+  "name": "laravel/qrcode-monkey-api",
+  "description": "Laravel Qrcode Monkey Api",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ayman Alaiwah",
+      "email": "aymanalaiwah.dev@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "guzzlehttp/guzzle": "^7.0@dev"
+  }
 }
