@@ -197,7 +197,7 @@ class CustomeGenerate
    */
   public function setEyeBallColors($eyeBall1Color, $eyeBall2Color, $eyeBall3Color)
   {
-    $this->eyeColors = [
+    $this->eyeBallColors = [
       "eyeBall1Color" => $eyeBall1Color,
       "eyeBall2Color" => $eyeBall2Color,
       "eyeBall3Color" => $eyeBall3Color,
