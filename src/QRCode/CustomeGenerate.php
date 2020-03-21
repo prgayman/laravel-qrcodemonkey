@@ -206,7 +206,7 @@ class CustomeGenerate
   }
 
   /**
-   * Set Eye Ball Colors HexColor
+   * Set Gradient Colors HexColor
    * @param string $gradientColor1
    * @param string $gradientColor2
    * 

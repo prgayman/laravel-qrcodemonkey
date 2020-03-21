@@ -46,9 +46,125 @@ php artisan vendor:publish --provider="Prgayman\QRCodeMonkey\QRCodeMonkeyService
 
 ```
 
+## Documentation
+
+### Custome Generate QRCode
+
+```php
+use Prgayman\QRCodeMonkey\QRCode\CustomeGenerate;
+
+$generate = new CustomeGenerate();
+$qrcode = $generate->setType("email") // QRCode Type Generate
+    ->setData([
+        "email"=>"aymanalaiwah.dev@gmail.com",
+        "subject"=>"QRCode Monkey Api",
+        "body"=>"Test Send Mail"
+    ])
+    ->setFileType("svg")
+    ->getQRCode();
+echo $qrcode;
+```
+
+### Functions
+
+1. Set Qrcode Type (Optional) default value (text)
+
+```php
+/**
+* @param string $type [ phone,sms, email, text, url, location,  wifi, bitcoin, event]
+*/
+$qrcode->setType($type);
+```
+
+2. Set Platform (Optional) default value (web)
+
+```php
+/**
+* @param string $platform [android,ios,web]
+*/
+$qrcode->setPlatform($platform);
+```
+
+3. Set File type (Optional) default value (png)
+
+```php
+/**
+* @param string $fileType [svg,png,eps,pdf]
+*/
+$qrcode->setFileType($fileType);
+```
+
+4. Set Qrcode Size (Optional) default value (300x300)
+
+```php
+/**
+* @param string $size
+*/
+$qrcode->setSize($size);
+```
+
+5. Set Qrcode Background Color (Optional) default value (#ffffff)
+
+```php
+/**
+* @param string $hexColor
+*/
+$qrcode->setBgColor($hexColor);
+```
+
+6. Set Qrcode Body Color (Optional) default value (#000000)
+
+```php
+/**
+* @param string $hexColor
+*/
+$qrcode->setBodyColor($hexColor);
+```
+
+7. Set Qrcode Eye Color (Optional) default value (#000000)
+
+```php
+/**
+* @param string $eye1Color default value (#000000)
+* @param string $eye2Color default value (#000000)
+* @param string $eye3Color default value (#000000)
+*/
+$qrcode->setEyeColors($eye1Color, $eye2Color, $eye3Color)
+```
+
+7. Set Qrcode Eye Ball Color (Optional) default value (#000000)
+
+```php
+/**
+* @param string $eyeBall1Color default value (#000000)
+* @param string $eyeBall2Color default value (#000000)
+* @param string $eyeBall3Color default value (#000000)
+*/
+$qrcode->setEyeBallColors($eyeBall1Color, $eyeBall2Color, $eyeBall3Color)
+```
+
+8. Set Qrcode Gradient Color (Optional) default value (null)
+
+```php
+/**
+* @param string $gradientColor1 default value (null)
+* @param string $gradientColor2 default value (null)
+*/
+$qrcode->setGradientColors($gradientColor1, $gradientColor2)
+```
+
+9. Set Qrcode Gradient type (Optional) default value (linear)
+
+```php
+/**
+* @param string $type [linear, radial]
+*/
+$qrcode->setGradientType($type)
+```
+
 ## Contributing
 
-Please submit all issues and pull requests to the [prgayman/prgayman/laravel-qrcodemonkey](https://github.com/prgayman/laravel-qrcodemonkey) repository on the develop branch!
+Please submit all issues and pull requests to the [prgayman/laravel-qrcodemonkey](https://github.com/prgayman/laravel-qrcodemonkey) repository on the develop branch!
 
 ## License
 
