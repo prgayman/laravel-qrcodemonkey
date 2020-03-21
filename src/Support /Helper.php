@@ -1,9 +1,9 @@
 <?php
 
-namespace AymanAlaiwah\QRCodeMonkey\Support;
+namespace Prgayman\QRCodeMonkey\Support;
 
-use AymanAlaiwah\QRCodeMonkey\Traits\Api;
-use AymanAlaiwah\QRCodeMonkey\Traits\ApiConfig;
+use Prgayman\QRCodeMonkey\Traits\Api;
+use Prgayman\QRCodeMonkey\Traits\ApiConfig;
 
 class Helper
 {

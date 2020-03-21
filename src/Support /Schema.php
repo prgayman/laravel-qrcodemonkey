@@ -1,6 +1,6 @@
 <?php
 
-namespace AymanAlaiwah\QRCodeMonkey\Support;
+namespace Prgayman\QRCodeMonkey\Support;
 
 class Schema
 {

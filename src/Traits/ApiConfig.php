@@ -1,6 +1,6 @@
 <?php
 
-namespace AymanAlaiwah\QRCodeMonkey\Traits;
+namespace Prgayman\QRCodeMonkey\Traits;
 
 /**
  * Trait has all function get config api 

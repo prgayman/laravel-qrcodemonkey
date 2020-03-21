@@ -1,6 +1,6 @@
 <?php
 
-namespace AymanAlaiwah\QRCodeMonkey;
+namespace Prgayman\QRCodeMonkey;
 
 use Illuminate\Support\ServiceProvider;
 

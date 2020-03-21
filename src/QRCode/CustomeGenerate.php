@@ -1,12 +1,12 @@
 <?php
 
-namespace laravel\QRCodeMonkey\QRCode;
+namespace Prgayman\QRCodeMonkey\QRCode;
 
-use AymanAlaiwah\QRCodeMonkey\Support\Helper;
-use AymanAlaiwah\QRCodeMonkey\Support\QRCodeTypeFormatData;
-use AymanAlaiwah\QRCodeMonkey\Support\Shapes;
-use AymanAlaiwah\QRCodeMonkey\Traits\Api;
-use AymanAlaiwah\QRCodeMonkey\Traits\ApiConfig;
+use Prgayman\QRCodeMonkey\Support\Helper;
+use Prgayman\QRCodeMonkey\Support\QRCodeTypeFormatData;
+use Prgayman\QRCodeMonkey\Support\Shapes;
+use Prgayman\QRCodeMonkey\Traits\Api;
+use Prgayman\QRCodeMonkey\Traits\ApiConfig;
 
 class CustomeGenerate
 {
