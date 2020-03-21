@@ -27,7 +27,11 @@
 1. You can install the package via composer:
 
 ```sh
+<<<<<<< HEAD
 composer require prgayman/laravel-qrcodemonkey
+=======
+composer require ayman-alaiwah/qrcode-monkey-api
+>>>>>>> ca9516aef911743c31715b2c31e2cb07b672e360
 ```
 
 2. Optional: The service provider will automatically get registered. Or you may manually add the service provider in your config/app.php file:
@@ -35,20 +39,32 @@ composer require prgayman/laravel-qrcodemonkey
 ```sh
 'providers' => [
     // ...
+<<<<<<< HEAD
     Prgayman\QRCodeMonkey\QRCodeMonkeyServiceProvider::class,
+=======
+    AymanAlaiwah\QRCodeMonkey\QRCodeMonkeyServiceProvider::class,
+>>>>>>> ca9516aef911743c31715b2c31e2cb07b672e360
 ];
 ```
 
 3. You should publish the config/qrcode_monkey.php config file with:
 
 ```sh
+<<<<<<< HEAD
 php artisan vendor:publish --provider="Prgayman\QRCodeMonkey\QRCodeMonkeyServiceProvider"
+=======
+php artisan vendor:publish --provider="AymanAlaiwah\QRCodeMonkey\QRCodeMonkeyServiceProvider"
+>>>>>>> ca9516aef911743c31715b2c31e2cb07b672e360
 
 ```
 
 ## Contributing
 
+<<<<<<< HEAD
 Please submit all issues and pull requests to the [prgayman/prgayman/laravel-qrcodemonkey](https://github.com/prgayman/laravel-qrcodemonkey) repository on the develop branch!
+=======
+Please submit all issues and pull requests to the [aymanalaiwah/qrcode-monkey-api](https://github.com/ayman-alaiwah/laravel-qrcodemonkey) repository on the develop branch!
+>>>>>>> ca9516aef911743c31715b2c31e2cb07b672e360
 
 ## License
 
