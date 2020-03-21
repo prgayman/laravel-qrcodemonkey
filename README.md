@@ -213,6 +213,57 @@ $generate = new CustomeGenerate();
 $qrcode->donwload()
 ```
 
+15. Set Qrcode Body shape (optional) default value (square)
+
+```php
+$generate = new CustomeGenerate();
+
+/**
+* @param string $shape
+*/
+$qrcode->setBodyShape($shape);
+
+// Get Body Shape Supported
+use Prgayman\QRCodeMonkey\Support\Shapes;
+$bodyShape = Shapes::bodyShape(); // Get Body Shape supported keys
+$bodyShapeImgs = Shapes::getBodyShapeImg(); // Get Body Shape supported keys with image url
+
+```
+
+16. Set Qrcode Eye shape (optional) default value (frame0)
+
+```php
+$generate = new CustomeGenerate();
+
+/**
+* @param string $shape
+*/
+$qrcode->setEyeShape($shape);
+
+// Get Body Shape Supported
+use Prgayman\QRCodeMonkey\Support\Shapes;
+$eyeFrameShape = Shapes::eyeFrameShape(); // Get Eye Shape supported keys
+$eyeFrameShapeImgs = Shapes::getEyeFrameShapeImg(); // Get Eye Shape supported keys with image url
+
+```
+
+17. Set Qrcode Eye Ball shape (optional) default value (ball0)
+
+```php
+$generate = new CustomeGenerate();
+
+/**
+* @param string $shape
+*/
+$qrcode->setEyeBallShape($shape);
+
+// Get Body Shape Supported
+use Prgayman\QRCodeMonkey\Support\Shapes;
+$eyeBallShape = Shapes::eyeBallShape(); // Get Eye Ball Shape supported keys
+$eyeBallShapeImg = Shapes::getEyeBallShapeImg(); // Get Eye Ball Shape supported keys with image url
+
+```
+
 ## Contributing
 
 Please submit all issues and pull requests to the [prgayman/laravel-qrcodemonkey](https://github.com/prgayman/laravel-qrcodemonkey) repository on the develop branch!
