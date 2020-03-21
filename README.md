@@ -240,7 +240,7 @@ $generate = new CustomeGenerate();
 */
 $qrcode->setEyeShape($shape);
 
-// Get Body Shape Supported
+// Get Eye Shape Supported
 use Prgayman\QRCodeMonkey\Support\Shapes;
 $eyeFrameShape = Shapes::eyeFrameShape(); // Get Eye Shape supported keys
 $eyeFrameShapeImgs = Shapes::getEyeFrameShapeImg(); // Get Eye Shape supported keys with image url
@@ -257,7 +257,7 @@ $generate = new CustomeGenerate();
 */
 $qrcode->setEyeBallShape($shape);
 
-// Get Body Shape Supported
+// Get Eye Ball Shape Supported
 use Prgayman\QRCodeMonkey\Support\Shapes;
 $eyeBallShape = Shapes::eyeBallShape(); // Get Eye Ball Shape supported keys
 $eyeBallShapeImg = Shapes::getEyeBallShapeImg(); // Get Eye Ball Shape supported keys with image url
