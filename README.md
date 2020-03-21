@@ -65,11 +65,12 @@ $qrcode = $generate->setType("email") // QRCode Type Generate
 echo $qrcode;
 ```
 
-### Functions
+### Functions CustomeGenerate Class
 
 1. Set Qrcode Type (Optional) default value (text)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $type [ phone,sms, email, text, url, location,  wifi, bitcoin, event]
 */
@@ -79,6 +80,7 @@ $qrcode->setType($type);
 2. Set Platform (Optional) default value (web)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $platform [android,ios,web]
 */
@@ -88,6 +90,7 @@ $qrcode->setPlatform($platform);
 3. Set File type (Optional) default value (png)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $fileType [svg,png,eps,pdf]
 */
@@ -97,6 +100,7 @@ $qrcode->setFileType($fileType);
 4. Set Qrcode Size (Optional) default value (300x300)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $size
 */
@@ -106,6 +110,7 @@ $qrcode->setSize($size);
 5. Set Qrcode Background Color (Optional) default value (#ffffff)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $hexColor
 */
@@ -115,6 +120,7 @@ $qrcode->setBgColor($hexColor);
 6. Set Qrcode Body Color (Optional) default value (#000000)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $hexColor
 */
@@ -124,6 +130,7 @@ $qrcode->setBodyColor($hexColor);
 7. Set Qrcode Eye Color (Optional) default value (#000000)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $eye1Color default value (#000000)
 * @param string $eye2Color default value (#000000)
@@ -135,6 +142,7 @@ $qrcode->setEyeColors($eye1Color, $eye2Color, $eye3Color)
 7. Set Qrcode Eye Ball Color (Optional) default value (#000000)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $eyeBall1Color default value (#000000)
 * @param string $eyeBall2Color default value (#000000)
@@ -146,6 +154,7 @@ $qrcode->setEyeBallColors($eyeBall1Color, $eyeBall2Color, $eyeBall3Color)
 8. Set Qrcode Gradient Color (Optional) default value (null)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $gradientColor1 default value (null)
 * @param string $gradientColor2 default value (null)
@@ -156,10 +165,52 @@ $qrcode->setGradientColors($gradientColor1, $gradientColor2)
 9. Set Qrcode Gradient type (Optional) default value (linear)
 
 ```php
+$generate = new CustomeGenerate();
 /**
 * @param string $type [linear, radial]
 */
 $qrcode->setGradientType($type)
+```
+
+10. Set Qrcode logo mode (Optional) default value (default)
+
+```php
+$generate = new CustomeGenerate();
+/**
+* @param string $mode [default, clean]
+*/
+$qrcode->setLogoMode($mode)
+```
+
+11. Set Qrcode logo (Optional) default value (null)
+
+```php
+$generate = new CustomeGenerate();
+/**
+* @param string $logo url logo
+*/
+$qrcode->setLogo($logo)
+```
+
+12. Gradient On Eyes default false
+
+```php
+$generate = new CustomeGenerate();
+$qrcode->gradientOnEyes()
+```
+
+13. Generate QrCode and return image data
+
+```php
+$generate = new CustomeGenerate();
+$qrcode->getQRCode()
+```
+
+14. Generate QrCode and return download image url
+
+```php
+$generate = new CustomeGenerate();
+$qrcode->donwload()
 ```
 
 ## Contributing
