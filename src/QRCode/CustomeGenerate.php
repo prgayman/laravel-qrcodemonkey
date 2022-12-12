@@ -342,7 +342,7 @@ class CustomeGenerate
    * @return string  imageUrl
    */
 
-  public function donwload()
+  public function download()
   {
     $this->download = true;
     $create = $this->create();

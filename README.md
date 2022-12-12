@@ -210,7 +210,7 @@ $qrcode->getQRCode()
 
 ```php
 $generate = new CustomeGenerate();
-$qrcode->donwload()
+$qrcode->download()
 ```
 
 15. Set Qrcode Body shape (optional) default value (square)
